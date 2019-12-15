@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <title>Agenda Telefonica</title>
+</head>
+
+<body>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/agenda.js"></script>
+
+    <input type="hidden" id="agenda_id_delete">
+    <input type="hidden" id="agenda_id_update">
+
+
+    <div class="container" id="tela_padrao">
+        <h2>Agenda Telefonica</h2>
+
+          <!-- Formulário para inserção-->
+        <div class="row"> 
+            <div class="col-md-12">
+                <h4>Nome</h4>
+                <input type="text" class="form-control" id="agenda_nome">
+                <br>
+                <h4>Telefone</h4>
+                <input type="text" class="form-control" id="agenda_telefone">
+                <br><br>
+                <input type="button" value="Incluir" class="btn btn-lg btn-primary form-control" onclick="agenda_insert();">
+                <br><br>
+            </div>
+        </div>
+        
+         <!-- Linha que exibe a listagem dos contatos salvos-->
+         <div class="row"> 
+                <div class="col-md-12">
+    
+                    <table class="table">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Delete</th>
+                            <th>Editar</th>
+                        </thead>
+                        <tbody id="agenda_listagem">
+                        </tbody>
+    
+                    </table>
+                </div>
+            </div>
+    </div>
+
+        <!-- tela de edicao-->
+        <div class="container" id="tela_edicao" hidden>
+            <div class="row">
+    
+                <div class="col-md-12">
+                    <input type="button" class="btn btn-lg btn-primary form-control" value="Voltar" onclick="agenda_update_fechar_tela()">
+                    <br>
+                    <h3>Editando contato</h3>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Nome: </h4>
+                    <input type="text" class="form-control" id="agenda_nome_update">
+                    <br>
+                    <h4>Telefone: </h4>
+                    <input type="text" class="form-control" id="agenda_telefone_update">
+                    <br>
+                    <input type="button" class="btn btn-lg btn-primary form-control" value="salvar edição" onclick="agenda_update()">
+                </div>
+            </div>
+        </div>
+
+       
+   
+    <script>
+        agenda_view();
+    </script>
+</body>
+
+</html>
